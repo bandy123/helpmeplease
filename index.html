@@ -1,0 +1,40 @@
+<html>
+<head>
+
+<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+		<script src="thescript.js"></script>
+		<link rel="stylesheet" href="stylesheet.css"/>
+</head>
+<body>
+
+
+
+<div id="relative">
+    <div id="absolute">
+        Widget 1: <span id="widget_1_price">$99.99</span><br />
+        Widget 2: <span id="widget_2_price">$14.99</span><br />
+        Shipping Fee: <span id="shipping_price">$10.00</span><br />
+        <b>Total: <span id="total_price"></span></b>
+    </div>
+</div>
+<script>
+let sum = 0
+
+document.querySelectorAll('[id^="widget_"], #shipping_price').forEach(tag =>
+  sum += parseFloat(tag.textContent.slice(1))
+)
+
+document.querySelector('#total_price').textContent = `$${Math.round(sum * 100) / 100}`
+</script>
+</body>
+</html>
